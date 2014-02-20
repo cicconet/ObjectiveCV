@@ -1,0 +1,282 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		69020528179EC97500E16731 /* OCVMorletCoefficients.m in Sources */ = {isa = PBXBuildFile; fileRef = 69020527179EC97500E16731 /* OCVMorletCoefficients.m */; };
+		69390B121755315E001F7686 /* OCVMorletWavelet.m in Sources */ = {isa = PBXBuildFile; fileRef = 69390B111755315E001F7686 /* OCVMorletWavelet.m */; };
+		69443C4317625A19000CBEDC /* OCVMorletConvolution.m in Sources */ = {isa = PBXBuildFile; fileRef = 69443C4217625A19000CBEDC /* OCVMorletConvolution.m */; };
+		699216B7161F655300816DC1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 699216B6161F655300816DC1 /* Foundation.framework */; };
+		699216BA161F655300816DC1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 699216B9161F655300816DC1 /* main.m */; };
+		699216BE161F655300816DC1 /* ObjectiveCV.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 699216BD161F655300816DC1 /* ObjectiveCV.1 */; };
+		699216C5161F656D00816DC1 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 699216C4161F656D00816DC1 /* Accelerate.framework */; };
+		699216C8161F65A600816DC1 /* OCVFloatImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 699216C7161F65A600816DC1 /* OCVFloatImage.m */; };
+		699216CB161F66B000816DC1 /* OCVImageProcessing.m in Sources */ = {isa = PBXBuildFile; fileRef = 699216CA161F66B000816DC1 /* OCVImageProcessing.m */; };
+		699216CD161F683600816DC1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 699216CC161F683600816DC1 /* CoreGraphics.framework */; };
+		699216CF161F687700816DC1 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 699216CE161F687700816DC1 /* ImageIO.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		699216B0161F655300816DC1 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				699216BE161F655300816DC1 /* ObjectiveCV.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		69020526179EC97500E16731 /* OCVMorletCoefficients.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCVMorletCoefficients.h; sourceTree = "<group>"; };
+		69020527179EC97500E16731 /* OCVMorletCoefficients.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCVMorletCoefficients.m; sourceTree = "<group>"; };
+		69390B101755315E001F7686 /* OCVMorletWavelet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCVMorletWavelet.h; sourceTree = "<group>"; };
+		69390B111755315E001F7686 /* OCVMorletWavelet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCVMorletWavelet.m; sourceTree = "<group>"; };
+		69443C4117625A19000CBEDC /* OCVMorletConvolution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCVMorletConvolution.h; sourceTree = "<group>"; };
+		69443C4217625A19000CBEDC /* OCVMorletConvolution.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCVMorletConvolution.m; sourceTree = "<group>"; };
+		699216B2161F655300816DC1 /* ObjectiveCV */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ObjectiveCV; sourceTree = BUILT_PRODUCTS_DIR; };
+		699216B6161F655300816DC1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		699216B9161F655300816DC1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		699216BC161F655300816DC1 /* ObjectiveCV-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ObjectiveCV-Prefix.pch"; sourceTree = "<group>"; };
+		699216BD161F655300816DC1 /* ObjectiveCV.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = ObjectiveCV.1; sourceTree = "<group>"; };
+		699216C4161F656D00816DC1 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		699216C6161F65A600816DC1 /* OCVFloatImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCVFloatImage.h; sourceTree = "<group>"; };
+		699216C7161F65A600816DC1 /* OCVFloatImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCVFloatImage.m; sourceTree = "<group>"; };
+		699216C9161F66B000816DC1 /* OCVImageProcessing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCVImageProcessing.h; sourceTree = "<group>"; };
+		699216CA161F66B000816DC1 /* OCVImageProcessing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCVImageProcessing.m; sourceTree = "<group>"; };
+		699216CC161F683600816DC1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		699216CE161F687700816DC1 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		699216AF161F655300816DC1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				699216CF161F687700816DC1 /* ImageIO.framework in Frameworks */,
+				699216CD161F683600816DC1 /* CoreGraphics.framework in Frameworks */,
+				699216C5161F656D00816DC1 /* Accelerate.framework in Frameworks */,
+				699216B7161F655300816DC1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		699216A7161F655300816DC1 = {
+			isa = PBXGroup;
+			children = (
+				699216B8161F655300816DC1 /* ObjectiveCV */,
+				699216B5161F655300816DC1 /* Frameworks */,
+				699216B3161F655300816DC1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		699216B3161F655300816DC1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				699216B2161F655300816DC1 /* ObjectiveCV */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		699216B5161F655300816DC1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				699216CE161F687700816DC1 /* ImageIO.framework */,
+				699216CC161F683600816DC1 /* CoreGraphics.framework */,
+				699216C4161F656D00816DC1 /* Accelerate.framework */,
+				699216B6161F655300816DC1 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		699216B8161F655300816DC1 /* ObjectiveCV */ = {
+			isa = PBXGroup;
+			children = (
+				699216B9161F655300816DC1 /* main.m */,
+				699216C6161F65A600816DC1 /* OCVFloatImage.h */,
+				699216C7161F65A600816DC1 /* OCVFloatImage.m */,
+				699216C9161F66B000816DC1 /* OCVImageProcessing.h */,
+				699216CA161F66B000816DC1 /* OCVImageProcessing.m */,
+				69390B101755315E001F7686 /* OCVMorletWavelet.h */,
+				69390B111755315E001F7686 /* OCVMorletWavelet.m */,
+				69443C4117625A19000CBEDC /* OCVMorletConvolution.h */,
+				69443C4217625A19000CBEDC /* OCVMorletConvolution.m */,
+				69020526179EC97500E16731 /* OCVMorletCoefficients.h */,
+				69020527179EC97500E16731 /* OCVMorletCoefficients.m */,
+				699216BD161F655300816DC1 /* ObjectiveCV.1 */,
+				699216BB161F655300816DC1 /* Supporting Files */,
+			);
+			path = ObjectiveCV;
+			sourceTree = "<group>";
+		};
+		699216BB161F655300816DC1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				699216BC161F655300816DC1 /* ObjectiveCV-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		699216B1161F655300816DC1 /* ObjectiveCV */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 699216C1161F655300816DC1 /* Build configuration list for PBXNativeTarget "ObjectiveCV" */;
+			buildPhases = (
+				699216AE161F655300816DC1 /* Sources */,
+				699216AF161F655300816DC1 /* Frameworks */,
+				699216B0161F655300816DC1 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ObjectiveCV;
+			productName = ObjectiveCV;
+			productReference = 699216B2161F655300816DC1 /* ObjectiveCV */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		699216A9161F655300816DC1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Marcelo Cicconet";
+			};
+			buildConfigurationList = 699216AC161F655300816DC1 /* Build configuration list for PBXProject "ObjectiveCV" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 699216A7161F655300816DC1;
+			productRefGroup = 699216B3161F655300816DC1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				699216B1161F655300816DC1 /* ObjectiveCV */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		699216AE161F655300816DC1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				699216BA161F655300816DC1 /* main.m in Sources */,
+				699216C8161F65A600816DC1 /* OCVFloatImage.m in Sources */,
+				699216CB161F66B000816DC1 /* OCVImageProcessing.m in Sources */,
+				69390B121755315E001F7686 /* OCVMorletWavelet.m in Sources */,
+				69443C4317625A19000CBEDC /* OCVMorletConvolution.m in Sources */,
+				69020528179EC97500E16731 /* OCVMorletCoefficients.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		699216BF161F655300816DC1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		699216C0161F655300816DC1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		699216C2161F655300816DC1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ObjectiveCV/ObjectiveCV-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		699216C3161F655300816DC1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ObjectiveCV/ObjectiveCV-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		699216AC161F655300816DC1 /* Build configuration list for PBXProject "ObjectiveCV" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				699216BF161F655300816DC1 /* Debug */,
+				699216C0161F655300816DC1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		699216C1161F655300816DC1 /* Build configuration list for PBXNativeTarget "ObjectiveCV" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				699216C2161F655300816DC1 /* Debug */,
+				699216C3161F655300816DC1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 699216A9161F655300816DC1 /* Project object */;
+}

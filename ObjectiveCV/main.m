@@ -38,7 +38,7 @@ int main(int argc, const char * argv[])
 
 void gradient(void)
 {
-    OCVFloatImage * input = [[OCVFloatImage alloc] initWithImageInFilePath:[NSString stringWithFormat:@"/Users/Cicconet/Desktop/Input.jpg"]];
+    OCVFloatImage * input = [[OCVFloatImage alloc] initWithImageInFilePath:[NSString stringWithFormat:@"/Users/Cicconet/Desktop/Image.png"]];
     OCVFloatImage * output = [[OCVFloatImage alloc] initWithData:NULL width:input.width height:input.height];
     [OCVImageProcessing gradient:output input:input];
     [output normalize];
@@ -49,7 +49,7 @@ void gradient(void)
 
 void histeq(void)
 {
-    OCVFloatImage * input = [[OCVFloatImage alloc] initWithImageInFilePath:[NSString stringWithFormat:@"/Users/Cicconet/Desktop/Input.jpg"]];
+    OCVFloatImage * input = [[OCVFloatImage alloc] initWithImageInFilePath:[NSString stringWithFormat:@"/Users/Cicconet/Desktop/Image.png"]];
     OCVFloatImage * output = [[OCVFloatImage alloc] initWithData:NULL width:input.width height:input.height];
     [OCVImageProcessing histogramEqualization:output input:input];
     [output normalize];
@@ -60,7 +60,7 @@ void histeq(void)
 
 void adapthisteq(void)
 {
-    OCVFloatImage * input = [[OCVFloatImage alloc] initWithImageInFilePath:[NSString stringWithFormat:@"/Users/Cicconet/Desktop/Input.jpg"]];
+    OCVFloatImage * input = [[OCVFloatImage alloc] initWithImageInFilePath:[NSString stringWithFormat:@"/Users/Cicconet/Desktop/Image.png"]];
     OCVFloatImage * output = [[OCVFloatImage alloc] initWithData:NULL width:input.width height:input.height];
     [OCVImageProcessing adaptiveHistogramEqualization:output input:input nBlockRows:2 nBlockCols:2];
     [output normalize];
@@ -71,7 +71,7 @@ void adapthisteq(void)
 
 void morphoper(void)
 {
-    OCVFloatImage * input = [[OCVFloatImage alloc] initWithImageInFilePath:[NSString stringWithFormat:@"/Users/Cicconet/Desktop/Input.jpg"]];
+    OCVFloatImage * input = [[OCVFloatImage alloc] initWithImageInFilePath:[NSString stringWithFormat:@"/Users/Cicconet/Desktop/Image.png"]];
     OCVFloatImage * output = [[OCVFloatImage alloc] initWithData:NULL width:input.width height:input.height];
     int size = 5; // should be odd
     OCVKernel * kernel = [OCVImageProcessing allocMorphologicalKernelWithSize:size];
@@ -86,7 +86,7 @@ void morphoper(void)
 
 void gaussconv(void)
 {
-    OCVFloatImage * input = [[OCVFloatImage alloc] initWithImageInFilePath:[NSString stringWithFormat:@"/Users/Cicconet/Desktop/Input.jpg"]];
+    OCVFloatImage * input = [[OCVFloatImage alloc] initWithImageInFilePath:[NSString stringWithFormat:@"/Users/Cicconet/Desktop/Image.png"]];
     OCVFloatImage * output = [[OCVFloatImage alloc] initWithData:NULL width:input.width height:input.height];
     int size = 21; // should be odd
     OCVKernel * kernel = [OCVImageProcessing allocGaussianKernelWithSize:size standardDeviation:5.0];
@@ -100,7 +100,7 @@ void gaussconv(void)
 
 void morletconv(void)
 {
-    OCVFloatImage * input = [[OCVFloatImage alloc] initWithImageInFilePath:[NSString stringWithFormat:@"/Users/Cicconet/Desktop/Input.jpg"]];
+    OCVFloatImage * input = [[OCVFloatImage alloc] initWithImageInFilePath:[NSString stringWithFormat:@"/Users/Cicconet/Desktop/Image.png"]];
     OCVFloatImage * output = [[OCVFloatImage alloc] initWithData:NULL width:input.width height:input.height];
     OCVMorletWavelet * kernel = [[OCVMorletWavelet alloc] initWithStretch:1 scale:3 orientation:45 nPeaks:1];
     [kernel prepareToVisualizeKernel:@"imaginary"];
@@ -123,13 +123,13 @@ void morletconv(void)
 
 void morletcoef(void)
 {
-    OCVFloatImage * input = [[OCVFloatImage alloc] initWithImageInFilePath:[NSString stringWithFormat:@"/Users/Cicconet/Desktop/Input.jpg"]];
+    OCVFloatImage * input = [[OCVFloatImage alloc] initWithImageInFilePath:[NSString stringWithFormat:@"/Users/Cicconet/Desktop/Image.png"]];
     OCVMorletCoefficients * mc = [[OCVMorletCoefficients alloc] initForImageWidth:input.width
                                                                            height:input.height
                                                                             scale:1.0
                                                                     nOrientations:16
-                                                                          hopSize:5
-                                                                   halfWindowSize:1
+                                                                          hopSize:11
+                                                                   halfWindowSize:5
                                                                magnitudeThreshold:0.01
                                                               dataStructureIsList:YES
                                                               thresholdingIsLocal:NO];

@@ -48,9 +48,8 @@ float collinearity(NSPoint p, NSPoint tauP, NSPoint q, NSPoint tauQ);
         }
         
         halfWindowSize = theHalfWindowSize;
-        int windowSize = halfWindowSize;
-        nSelectedRows = floorf((input.height-windowSize)/(float)theHopSize)+1;
-        nSelectedCols = floorf((input.width-windowSize)/(float)theHopSize)+1;
+        nSelectedRows = floorf((input.height-2*halfWindowSize)/(float)theHopSize)+1;
+        nSelectedCols = floorf((input.width-2*halfWindowSize)/(float)theHopSize)+1;
         selectedRows = (int *)malloc(nSelectedRows*sizeof(int));
         selectedCols = (int *)malloc(nSelectedCols*sizeof(int));
         

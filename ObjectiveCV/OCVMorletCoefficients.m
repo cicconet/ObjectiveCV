@@ -144,6 +144,8 @@ float collinearity(NSPoint p, NSPoint tauP, NSPoint q, NSPoint tauQ);
     }
     free(kernels);
     [super dealloc];
+    
+    [convolution release];
 }
 
 - (void)setInput:(OCVFloatImage *)theInput

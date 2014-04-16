@@ -33,14 +33,19 @@
 - (void)convolveInput:(OCVFloatImage *)theInput
            withKernel:(OCVMorletWavelet *)theKernel
                output:(OCVFloatImage *)theOutput
+      ignoreDirection:(BOOL)ignoreDirection
 {
     vImage_Buffer vImageBufferInput = [theInput vImageBufferStructure];
     
-    vImageConvolve_PlanarF(&vImageBufferInput, &vImageBufferR, NULL, 0, 0, theKernel.kernelR, theKernel.kernelWidth, theKernel.kernelHeight, 0.0, kvImageBackgroundColorFill);
-    vImageConvolve_PlanarF(&vImageBufferInput, &vImageBufferI, NULL, 0, 0, theKernel.kernelI, theKernel.kernelWidth, theKernel.kernelHeight, 0.0, kvImageBackgroundColorFill);
+    if (ignoreDirection) {
+        vImageConvolve_PlanarF(&vImageBufferInput, &vImageBufferR, NULL, 0, 0, theKernel.kernelR, theKernel.kernelWidth, theKernel.kernelHeight, 0.0, kvImageBackgroundColorFill);
+        vImageConvolve_PlanarF(&vImageBufferInput, &vImageBufferI, NULL, 0, 0, theKernel.kernelI, theKernel.kernelWidth, theKernel.kernelHeight, 0.0, kvImageBackgroundColorFill);
+        [OCVImageProcessing complexNormWithRealPart:bufferR imaginaryPart:bufferI output:theOutput];
+    } else {
+        vImage_Buffer vImageBufferO = [theOutput vImageBufferStructure];
+        vImageConvolve_PlanarF(&vImageBufferInput, &vImageBufferO, NULL, 0, 0, theKernel.kernelI, theKernel.kernelWidth, theKernel.kernelHeight, 0.0, kvImageBackgroundColorFill);
+    }
     
-    [OCVImageProcessing complexNormWithRealPart:bufferR imaginaryPart:bufferI output:theOutput];
-    [theOutput normalize];
 }
 
 @end

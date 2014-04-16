@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>DF7EE3C4-7E69-47B4-979D-90F645977454</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ObjectiveCV</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>B95B11E9-D06B-4BF2-8FD2-94F38C00B2B6</key>
+		<string>https://github.com/cicconet/ObjectiveCV.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ObjectiveCV.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>B95B11E9-D06B-4BF2-8FD2-94F38C00B2B6</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/cicconet/ObjectiveCV.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>B95B11E9-D06B-4BF2-8FD2-94F38C00B2B6</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B95B11E9-D06B-4BF2-8FD2-94F38C00B2B6</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ObjectiveCV</string>
+		</dict>
+	</array>
+</dict>
+</plist>

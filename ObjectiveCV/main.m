@@ -113,7 +113,7 @@ void morletconv(void)
     [image savePNGToFilePath:@"/Users/Cicconet/Desktop/KernelR.png"];
     [image release];
     OCVMorletConvolution * convolution = [[OCVMorletConvolution alloc] initForImageWidth:input.width height:input.height];
-    [convolution convolveInput:input withKernel:kernel output:output];
+    [convolution convolveInput:input withKernel:kernel output:output ignoreDirection:NO];
     [output normalize];
     [output savePNGToFilePath:@"/Users/Cicconet/Desktop/Output.png"];
     [convolution release];
@@ -127,13 +127,14 @@ void morletcoef(void)
     OCVFloatImage * input = [[OCVFloatImage alloc] initWithImageInFilePath:[NSString stringWithFormat:@"/Users/Cicconet/Desktop/Image.png"]];
     OCVMorletCoefficients * mc = [[OCVMorletCoefficients alloc] initForImageWidth:input.width
                                                                            height:input.height
-                                                                            scale:1.0
+                                                                            scale:2.0
                                                                     nOrientations:16
-                                                                          hopSize:11
-                                                                   halfWindowSize:5
+                                                                          hopSize:5
+                                                                   halfWindowSize:1
                                                                magnitudeThreshold:0.01
                                                               dataStructureIsList:YES
-                                                              thresholdingIsLocal:NO];
+                                                              thresholdingIsLocal:YES
+                                                                  ignoreDirection:NO];
     [mc setInput:input];
     [mc performConvolutions];
     [mc findCoefficients];

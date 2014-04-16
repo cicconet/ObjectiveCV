@@ -28,6 +28,7 @@
     
     BOOL dataStructureIsList;
     BOOL thresholdingIsLocal;
+    BOOL ignoreTangentDirection;
     
     int nCoefficients;
     int * indices;
@@ -62,7 +63,8 @@
          halfWindowSize:(int)theHalfWindowSize
      magnitudeThreshold:(float)theMagnitudeThreshold
     dataStructureIsList:(BOOL)theDataStructureIsList
-    thresholdingIsLocal:(BOOL)theThresholdingIsLocal;
+    thresholdingIsLocal:(BOOL)theThresholdingIsLocal
+        ignoreDirection:(BOOL)ignoreDirection;
 - (void)setInput:(OCVFloatImage *)theInput;
 - (void)performConvolutions;
 - (void)findCoefficients;

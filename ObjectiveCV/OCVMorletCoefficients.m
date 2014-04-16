@@ -23,13 +23,20 @@ float collinearity(NSPoint p, NSPoint tauP, NSPoint q, NSPoint tauQ);
      magnitudeThreshold:(float)theMagnitudeThreshold
     dataStructureIsList:(BOOL)theDataStructureIsList
     thresholdingIsLocal:(BOOL)theThresholdingIsLocal
+        ignoreDirection:(BOOL)ignoreDirection
 {
     if (self = [super init]) {
         magnitudeThreshold = theMagnitudeThreshold;
         nOrientations = theNOrientations;
         kernels = (OCVMorletWavelet **)malloc(nOrientations*sizeof(OCVMorletWavelet *));
+        float maxAngle;
+        if (ignoreDirection) {
+            maxAngle = 180.0;
+        } else {
+            maxAngle = 360.0;
+        }
         for (int i = 0; i < nOrientations; i++) {
-            float orientation = (float)i*180.0/(float)nOrientations;
+            float orientation = (float)i*maxAngle/(float)nOrientations;
             kernels[i] = [[OCVMorletWavelet alloc] initWithStretch:1 scale:theScale orientation:orientation nPeaks:1];
 //            if (i == 0) {
 //                [kernels[i] prepareToVisualizeKernel:@"real"];
@@ -68,6 +75,7 @@ float collinearity(NSPoint p, NSPoint tauP, NSPoint q, NSPoint tauQ);
         
         dataStructureIsList = theDataStructureIsList;
         thresholdingIsLocal = theThresholdingIsLocal;
+        ignoreTangentDirection = ignoreDirection;
         
         // matrix data structure
         M = [[OCVFloatImage alloc] initWithData:NULL width:nSelectedCols height:nSelectedRows];
@@ -156,7 +164,7 @@ float collinearity(NSPoint p, NSPoint tauP, NSPoint q, NSPoint tauQ);
 - (void)performConvolutions
 {
     for (int i = 0; i < nOrientations; i++) {
-        [convolution convolveInput:input withKernel:kernels[i] output:outputs[i]];
+        [convolution convolveInput:input withKernel:kernels[i] output:outputs[i] ignoreDirection:ignoreTangentDirection];
 //        for (int j = 0; j < 10; j++) {
 //            float factor = (float)j/10.0;
 //            int row = j;
@@ -188,6 +196,12 @@ float collinearity(NSPoint p, NSPoint tauP, NSPoint q, NSPoint tauQ);
     float magnitude;
     int nCols = input.width;
     float globalMaxMag = -INFINITY;
+    float factor;
+    if (ignoreTangentDirection) {
+        factor = M_PI;
+    } else {
+        factor = 2.0*M_PI;
+    }
     for (int i = 0; i < nSelectedRows; i++) {
         for (int j = 0; j < nSelectedCols; j++) {
             int row1 = selectedRows[i]-halfWindowSize;
@@ -211,7 +225,7 @@ float collinearity(NSPoint p, NSPoint tauP, NSPoint q, NSPoint tauQ);
             }
             index = i*nSelectedCols+j;
             M.data[index] = blockMaxMag;
-            A.data[index] = maxK*M_PI/(float)nOrientations+M_PI_2;
+            A.data[index] = maxK*factor/(float)nOrientations+M_PI_2;
             X.data[index] = maxRow; // X0: selectedRows[i];
             Y.data[index] = maxCol; // Y0: selectedCols[j];
             if (blockMaxMag > globalMaxMag) globalMaxMag = blockMaxMag;
@@ -304,38 +318,65 @@ float collinearity(NSPoint p, NSPoint tauP, NSPoint q, NSPoint tauQ);
 
 - (void)saveOutputsToFilePath:(NSString *)theFilePath
 {
+    int factor = 2;
+    OCVFloatImage * image = [[OCVFloatImage alloc] initWithData:NULL width:factor*input.width height:factor*input.height];
     if (dataStructureIsList) {
-        int factor = 2;
-        OCVFloatImage * image = [[OCVFloatImage alloc] initWithData:NULL width:factor*input.width height:factor*input.height];
-        for (int i = 0; i < nCoefficients; i++) {
-            int row0 = factor*x[indices[i]];
-            int col0 = factor*y[indices[i]];
-            for (int j = -factor; j < factor; j++) {
-                int row = row0+roundf(j*cosf(a[indices[i]]));
-                int col = col0+roundf(j*sinf(a[indices[i]]));
-                image.data[row*image.width+col] = m[indices[i]];
+        if (ignoreTangentDirection) {
+            for (int i = 0; i < nCoefficients; i++) {
+                int row0 = factor*x[indices[i]];
+                int col0 = factor*y[indices[i]];
+                for (int j = -factor; j < factor; j++) {
+                    int row = row0+roundf(j*cosf(a[indices[i]]));
+                    int col = col0+roundf(j*sinf(a[indices[i]]));
+                    image.data[row*image.width+col] = m[indices[i]];
+                }
+            }
+        } else {
+            for (int i = 0; i < nCoefficients; i++) {
+                int row0 = factor*x[indices[i]];
+                int col0 = factor*y[indices[i]];
+                for (int j = 1; j < 2*factor; j++) {
+                    int row = row0+roundf(j*cosf(a[indices[i]]));
+                    int col = col0+roundf(j*sinf(a[indices[i]]));
+                    image.data[row*image.width+col] = 0.5*m[indices[i]];
+                }
+                image.data[row0*image.width+col0] = 1.0;
             }
         }
-        [image savePNGToFilePath:theFilePath];
-        [image release];
     } else {
-        int factor = 2;
-        OCVFloatImage * image = [[OCVFloatImage alloc] initWithData:NULL width:factor*input.width height:factor*input.height];
-        for (int i = 0; i < nSelectedRows; i++) {
-            for (int j = 0; j < nSelectedCols; j++) {
-                int index = i*X.width+j;
-                int row0 = factor*X.data[index];
-                int col0 = factor*Y.data[index];
-                for (int k = -factor; k < factor; k++) {
-                    int row = row0+roundf(k*cosf(A.data[index]));
-                    int col = col0+roundf(k*sinf(A.data[index]));
-                    image.data[row*image.width+col] = M.data[index];
+        if (ignoreTangentDirection) {
+            for (int i = 0; i < nSelectedRows; i++) {
+                for (int j = 0; j < nSelectedCols; j++) {
+                    int index = i*X.width+j;
+                    int row0 = factor*X.data[index];
+                    int col0 = factor*Y.data[index];
+                    for (int k = -factor; k < factor; k++) {
+                        int row = row0+roundf(k*cosf(A.data[index]));
+                        int col = col0+roundf(k*sinf(A.data[index]));
+                        image.data[row*image.width+col] = M.data[index];
+                    }
+                }
+            }
+        } else {
+            for (int i = 0; i < nSelectedRows; i++) {
+                for (int j = 0; j < nSelectedCols; j++) {
+                    int index = i*X.width+j;
+                    if (M.data[index] > 0) {
+                        int row0 = factor*X.data[index];
+                        int col0 = factor*Y.data[index];
+                        for (int k = 1; k < 2*factor; k++) {
+                            int row = row0+roundf(k*cosf(A.data[index]));
+                            int col = col0+roundf(k*sinf(A.data[index]));
+                            image.data[row*image.width+col] = 0.5*M.data[index];
+                        }
+                        image.data[row0*image.width+col0] = 1.0;
+                    }
                 }
             }
         }
-        [image savePNGToFilePath:theFilePath];
-        [image release];
     }
+    [image savePNGToFilePath:theFilePath];
+    [image release];
 }
 
 @end

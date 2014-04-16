@@ -24,7 +24,8 @@
 - (id)initForImageWidth:(int)theWidth height:(int)theHeight;
 - (void)convolveInput:(OCVFloatImage *)theInput
            withKernel:(OCVMorletWavelet *)theKernel
-               output:(OCVFloatImage *)theOutput;
+               output:(OCVFloatImage *)theOutput
+      ignoreDirection:(BOOL)ignoreDirection;
 
 @end
 

@@ -5,7 +5,7 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>DF7EE3C4-7E69-47B4-979D-90F645977454</string>
+	<string>1B96CA65-60DA-4192-96C4-A02C2755CBF3</string>
 	<key>IDESourceControlProjectName</key>
 	<string>ObjectiveCV</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
@@ -21,7 +21,7 @@
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/cicconet/ObjectiveCV.git</string>
+	<string>https://bitbucket.org/cicconet/triangles_mac.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
